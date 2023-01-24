@@ -1,19 +1,19 @@
 create env 
 
-"""cmd 
+"""bash
 conda create -n wineq
 """
 
 activate env 
 
-"""cmd 
+"""bash
 conda activate wineq
 """
 
 created a req file
 
 install the req
-"""cmd 
+"""bash
 pip install -r requirement.txt 
 """
 
