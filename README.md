@@ -1,21 +1,21 @@
 create env 
 
-"""bash
+'''bash
 conda create -n wineq
-"""
+'''
 
 activate env 
 
-"""bash
+'''bash
 conda activate wineq
-"""
+'''
 
 created a req file
 
 install the req
-"""bash
+'''bash
 pip install -r requirement.txt 
-"""
+'''
 
 download the data from 
 
