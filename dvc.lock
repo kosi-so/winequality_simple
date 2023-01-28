@@ -7,15 +7,15 @@ stages:
       md5: ccc8d3507eb151f53f760d36abdef888
       size: 91998
     - path: src\get_data.py
-      md5: bdb2303171427ce2ed7d6ac03100278a
-      size: 662
+      md5: 5c5791416de58f644b4853dbd22de0c4
+      size: 655
     - path: src\load_data.py
       md5: c19f7c9a9e47ebfb0d3a49798dccf4d8
       size: 677
     outs:
     - path: data\raw\winequality.csv
-      md5: f86a3dc63fd59ed74fdb6743bc04252d
-      size: 429
+      md5: dcb9f7736a81b73cf4cf803b5ef3f07e
+      size: 102550
   split_data:
     cmd: python src\split_data.py --config=params.yaml
     deps:
@@ -23,15 +23,38 @@ stages:
       md5: ccc8d3507eb151f53f760d36abdef888
       size: 91998
     - path: src\get_data.py
-      md5: bdb2303171427ce2ed7d6ac03100278a
-      size: 662
+      md5: 5c5791416de58f644b4853dbd22de0c4
+      size: 655
     - path: src\split_data.py
       md5: 9f54eeda7b50d6a9b3f9a95b38f489e1
       size: 1066
     outs:
-    - path: data\processed\test_winequality.csv
-      md5: 046fdf56c3652328c25c1beca8570447
-      size: 202
-    - path: data\processed\train_winequality.csv
-      md5: 377ba380dcf0d5b9d7642d3441ab1cd3
-      size: 373
+    - path: data\processed\test_winequality2.csv
+      md5: c4a71f8cc77c561cb8cf31b06b78fce3
+      size: 19525
+    - path: data\processed\train_winequality2.csv
+      md5: 11441372685932b3d085312961ad4f27
+      size: 77242
+  train_and_evaluate:
+    cmd: python src\train_and_evaluate.py --config=params.yaml
+    deps:
+    - path: data\processed\test_winequality2.csv
+      md5: c4a71f8cc77c561cb8cf31b06b78fce3
+      size: 19525
+    - path: data\processed\train_winequality2.csv
+      md5: 11441372685932b3d085312961ad4f27
+      size: 77242
+    - path: src\train_and_evaluate.py
+      md5: a50bb3ffb0ec804159b4c2ff6a0cd277
+      size: 2554
+    params:
+      params.yaml:
+        estimators.ElasticNet.params.alpha: 0.88
+        estimators.ElasticNet.params.l1_ratio: 0.89
+    outs:
+    - path: report\params.json
+      md5: 0568f34313ba7c5e55128b75dbcbee5c
+      size: 46
+    - path: report\scores.json
+      md5: 66413be6a74ce6305d6fe955fd01c409
+      size: 100
