@@ -13,3 +13,4 @@ jupyterlab
 flake8
 flask
 gunicorn
+importlib-metadata==4.13.0
