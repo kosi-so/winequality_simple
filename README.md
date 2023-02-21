@@ -68,3 +68,14 @@ build your own package command
 ```bash
 python setup.py sdist bdist_wheel
 ```
+
+create web app 
+
+create github workflow folder 
+
+create Ci/cD yaml file 
+```bash
+.github\workflows\ci-cd.yaml
+```
+
+ 
