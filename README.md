@@ -78,4 +78,8 @@ create Ci/cD yaml file
 .github\workflows\ci-cd.yaml
 ```
 
+add Heroku path to ci-cd.yaml 
+
+create Procfile
+
  
