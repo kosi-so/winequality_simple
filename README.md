@@ -82,4 +82,8 @@ add Heroku path to ci-cd.yaml
 
 create Procfile
 
+Update prediction_service/prediction.py with new error classes and validation functions 
+
+
+
  
