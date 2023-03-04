@@ -30,7 +30,7 @@ def predict(data):
     prediction = model.predict(data).tolist()[0]
 
     try:
-        if 3 <= prediction >= 8:
+        if 3 <= prediction <= 8:
             return prediction
         else:
             raise NotInRange
@@ -62,7 +62,7 @@ def validate_input(dict_request):
 
 def form_response(dict_request):
     if validate_input(dict_request):
-        data = dict_request.values
+        data = dict_request.values()
         data = [list(map(float, data))]
         response = predict(data)
         return response 
