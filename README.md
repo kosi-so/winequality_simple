@@ -84,6 +84,21 @@ create Procfile
 
 Update prediction_service/prediction.py with new error classes and validation functions 
 
+Update test_config.py with new tests. this new tests are tests for incorrect range andincorrect columns 
 
+Create branch main-mlflow 
 
- 
+update dvc.yaml with "log_production_model
+
+update params.yaml with "ml_flow_config"
+
+update train_and_evaluate.py with mlflow functions 
+
+create an artifacts folder
+
+mlflow server command -
+
+mlflow server \
+--backend-store-uri sqlite:///mlflow.db \
+--default-artifact-root ./artifacts \
+--host 0.0.0.0 -p 1234
